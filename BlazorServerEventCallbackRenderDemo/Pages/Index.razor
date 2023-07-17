@@ -1,0 +1,18 @@
+﻿@page "/"
+@using System.Diagnostics;
+
+<PageTitle>Index</PageTitle>
+
+<ChildComponent OnClick="HandleChildClick"></ChildComponent>
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Console.WriteLine("Parent rendered");
+    }
+
+    private void HandleChildClick()
+    {
+        Console.WriteLine("Child Click Handled");
+    }
+}

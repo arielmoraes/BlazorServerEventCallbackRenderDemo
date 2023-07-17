@@ -1,0 +1,21 @@
+﻿<button @onclick="OnChildClick">Child Button</button>
+
+@code {
+
+    [Parameter] public EventCallback OnClick { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        Console.WriteLine("Child parameters set");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Console.WriteLine("Child rendered");
+    }
+
+    private async Task OnChildClick()
+    {
+        await OnClick.InvokeAsync();
+    }
+}
